@@ -1,13 +1,50 @@
-body {
+*, *::after, *::before {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* ### Primary */
+  --grayishblue: hsl(237, 18%, 59%);
+  --softred: hsl(345, 95%, 68%);
+
+  /* ### Neutral */
+
+  --lightwhite: hsl(0, 0%, 100%);
+  --darkblue: hsl(236, 21%, 26%);
+  --vdarkblue: hsl(235, 16%, 14%);
+  --mdarkblue: hsl(234, 17%, 12%);
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  background-color: var(--vdarkblue);
+  background-image: url('./images/bg-stars.svg');
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Reset */
+ul {
+  list-style: none
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
 }

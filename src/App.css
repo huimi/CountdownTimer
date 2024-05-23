@@ -1,38 +1,153 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  color: var(--softred);
+  height: 100%;
+}
+.main {
+  width: 100%;
+  margin: 0 auto auto auto;
+  text-align: center;
+}
+.footer {
+  background-image: url('./images/pattern-hills.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 25%;
+  min-height: 190px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.footer img {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.title {
+  margin: 2em 0;
+  letter-spacing: 7px;
+  word-wrap: break-word;
+  color: var(--lightwhite);
+}
+
+.segment {
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+}
+
+.card {
+  width: 20%;
+  max-width: 150px;
+  font-size: 14px;
+}
+
+.card .subtitle {
+  margin: 20px 0;
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1em;
+  color: var(--grayishblue);
+}
+
+.flip-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 6em;
+  background-color: var(--vdarkblue);
+  border-radius: 0.1em;
+}
+
+.flip-card::after {
+  position: absolute;
+  width: 100%;
+  content: "";
+  height: 0.5px;
+  background-color: var(--mdarkblue);
+  border-radius: 10px;
+  z-index: 10;
+  top: 50%;
+}
+
+.top, .top-flip,
+.bottom, .bottom-flip {
+  display: inline-flex;
+  justify-content: center;
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.25em;
+  overflow: hidden;
+  width: 100%;
+}
+
+.top, .top-flip {
+  background-color: var(--darkblue);
+  border-top-left-radius: 0.1em;
+  border-top-right-radius: 0.1em;
+}
+
+.bottom, .bottom-flip {
+  display: inline-flex;
+  align-items: flex-end;
+  background-color: var(--darkblue);
+  border-bottom-left-radius: 0.1em;
+  border-bottom-right-radius: 0.1em;
+  box-shadow: 0 7px var(--mdarkblue);
+}
+
+.concave {
+  position: absolute;
+  height: 8px;
+  width: 4px;
+  background-color: var(--mdarkblue);
+}
+
+.concave-left {
+  left: 0;
+  top: calc(50% - 4px);
+  border-radius: 0 8px 8px 0;
+  z-index: 10;
+}
+.concave-right {
+  right: -0;
+  top: calc(50% - 4px);
+  border-radius: 8px 0 0 8px;
+  z-index: 10;
+}
+
+/* animation */
+.top-flip {
+  position: absolute;
+  transform-origin: bottom;
+  animation: flip-top 500ms ease-in both;
+}
+
+.bottom-flip {
+  position: absolute;
+  bottom: 0;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  animation: flip-bottom 500ms ease-out 500ms both;
+}
+/* keyframe */
+
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
   }
 }
