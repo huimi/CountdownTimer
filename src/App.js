@@ -4,12 +4,7 @@ import fb from './images/icon-facebook.svg';
 import ig from './images/icon-instagram.svg';
 import pt from './images/icon-pinterest.svg';
 
-/*
-card need to flip when prevProp and nextProp is different
-when diff == true: render flip-top and flip-bottom
-
-*/
-const TIME = 10*60;
+const TIME = 10*86400;
 
 function Card({subtitle, data, flip}) {
   let prev = data + 1;
@@ -26,14 +21,14 @@ function Card({subtitle, data, flip}) {
   const animatedTopCard = !flip ? 
     <div className="top">{ next }</div> :
     <>
-      <div className="top-flip">{ prev }</div>
+      <div key={prev} className="top-flip">{ prev }</div>
       <div className="top">{ next }</div>
     </>;
 
   const animatedBottomCard = !flip ? 
   <div className="bottom">{ next }</div> :
   <>
-    <div className="bottom-flip">{ next }</div>
+    <div key={next} className="bottom-flip">{ next }</div>
     <div className="bottom">{ prev }</div>
   </>;
 
@@ -72,12 +67,11 @@ function App() {
   );
   const timeId = useRef(null);
   
-  // useEffect(() => {
-  //   if(time.diff == 0) {
-  //     clearInterval(timeId.current);
-  //   }
-  // }, [time.diff])
-
+  useEffect(() => {
+    if(time.diff == 0) {
+      clearInterval(timeId.current);
+    }
+  }, [time.diff])
 
   useEffect(() => {
     timeId.current = setInterval(() => {
@@ -97,14 +91,14 @@ function App() {
           }
         });
       }
-    }, 1000);
+    }, 1100);
     return () => clearInterval(timeId.current);
   }, []);
 
   return (
     <div className="container">
       <div className="main">
-        <h1 className="title">WE'RE LAUNCHING SOON</h1>
+        <h5 className="title">WE'RE LAUNCHING SOON</h5>
         <div className="segment">
           <Card key={'day'} subtitle={'DAYS'} data={ time.days } flip={ time.dFlip } />
           <Card key={'hour'} subtitle={'HOURS'} data={ time.hours } flip={ time.hFlip } />

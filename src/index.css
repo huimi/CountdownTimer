@@ -24,7 +24,7 @@ body {
   font-family: "Red Hat Text", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 14px;
+  font-size: calc(14px + 0.390625vw);
   background-color: var(--vdarkblue);
   background-image: url('./images/bg-stars.svg');
 }
