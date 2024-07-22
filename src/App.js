@@ -93,6 +93,7 @@ function App() {
       }
     }, 1100);
     return () => clearInterval(timeId.current);
+  // eslint-disable-next-line
   }, []);
 
   return (
