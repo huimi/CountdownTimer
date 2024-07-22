@@ -8,9 +8,9 @@ const TIME = 10*86400;
 
 function Card({subtitle, data, flip}) {
   let prev = data + 1;
-  if (subtitle == "HOURS" && prev > 23 ) {
+  if (subtitle === "HOURS" && prev > 23 ) {
     prev = 0;
-  }else if(subtitle != "DAYS" && prev > 59){
+  }else if(subtitle !== "DAYS" && prev > 59){
     prev = 0;
   }
   
@@ -68,7 +68,7 @@ function App() {
   const timeId = useRef(null);
   
   useEffect(() => {
-    if(time.diff == 0) {
+    if(time.diff === 0) {
       clearInterval(timeId.current);
     }
   }, [time.diff])
