@@ -10,10 +10,6 @@ Users should be able to:
 - See a live countdown timer that ticks down every second (start the count at 10 days)
 - **Bonus**: When a number changes, make the card flip from the middle
 
-## Links
-
-- Live Site URL: https://focus-cumulus-419404.uw.r.appspot.com/countdowntimer/
-
 ## Built with
 
 - React
